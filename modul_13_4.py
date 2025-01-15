@@ -8,6 +8,14 @@ api = ""
 bot = Bot(token = api)
 dp = Dispatcher(bot, storage= MemoryStorage())
 
+@dp.message_handler(text = ['Привет', 'привет'])
+async def urban_message(message):
+    await message.answer("Введите команду /start, чтобы начать общение.")
+
+@dp.message_handler(commands=['start'])
+async def start_message(message):
+    await message.answer("Привет! Я бот помогающий твоему здоровью.")
+
 class UserState(StatesGroup):
     age = State()
     growth = State()
