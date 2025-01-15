@@ -16,6 +16,11 @@ async def urban_message(message):
 async def start_message(message):
     await message.answer("Привет! Я бот помогающий твоему здоровью.")
 
+@dp.message_handler()
+async def all_message(message):
+    print("Мы получили сообщение!")
+    await message.answer(message.text)
+
 class UserState(StatesGroup):
     age = State()
     growth = State()
